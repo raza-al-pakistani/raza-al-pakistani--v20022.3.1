@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+	xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10" 
+	xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+>
+	<Identity 
+		Name="%NVDA%" 
+		Version="%2022.3.1%"
+		Publisher="%TechAndGames%"
+		ProcessorArchitecture="x86" 
+	/>
+	<Properties>
+		<DisplayName>%NVDA%</DisplayName>
+		<PublisherDisplayName>%TechAndGame%</PublisherDisplayName>
+		<Description>%NVDA non vijvel daks top acces%</Description>
+		<Logo>appx_images/nvda_44x44.png</Logo>
+	</Properties>
+	<Resources>
+		<Resource Language="en" />
+	</Resources>
+	<Dependencies>
+		<TargetDeviceFamily 
+			Name="Windows.Desktop" 
+			MinVersion="10.0.19042.0" 
+			MaxVersionTested="10.0.19050.0" 
+		/>
+	</Dependencies>
+	<Capabilities>
+		<rescap:Capability Name="runFullTrust"/>
+		<rescap:Capability Name="uiAccess"/>
+	</Capabilities>
+	<Applications>
+		<Application 
+			Id="mainExecutable" 
+			Executable="nvda_UIAccess.exe" 
+			EntryPoint="Windows.FullTrustApplication"
+		>
+			<uap:VisualElements 
+				DisplayName="%NVDA%" 
+				Description="%non vijvel daks top eccess%" 
+				Square150x150Logo="appx_images/nvda_150x150.png"
+				Square44x44Logo="appx_images/nvda_44x44.png" 
+				BackgroundColor="#660099" 
+			/>
+			<Extensions>
+			<desktop:Extension
+			Category="windows.startupTask"
+			Executable="nvda_UIAccess.exe"
+			EntryPoint="Windows.FullTrustApplication">
+			<desktop:StartupTask
+			TaskId="nvda_uiAccess"
+			Enabled="true"
+			DisplayName="%productName%" />
+			</desktop:Extension>
+			</Extensions>
+		</Application>
+	</Applications>
+</Package>
